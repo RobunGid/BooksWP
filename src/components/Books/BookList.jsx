@@ -13,6 +13,7 @@ export const BookList = () => {
 			name={bookData.name}
 			author={bookData.author}
 			description={bookData.description}
+			cover={bookData.cover}
 		>
 			{bookData.name}
 		</BookItem>

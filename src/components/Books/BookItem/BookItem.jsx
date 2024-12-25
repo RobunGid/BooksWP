@@ -3,7 +3,7 @@ import { CartContext } from '../../../store/cart-context';
 import styles from './BookItem.module.css';
 import { BookItemForm } from './BookItemForm';
 
-export const BookItem = ({ name, author, description, price, id }) => {
+export const BookItem = ({ name, author, description, price, id, cover }) => {
 	const cartContext = useContext(CartContext);
 	const handleAddToCart = ({ count }) => {
 		cartContext.addItem({
@@ -12,6 +12,7 @@ export const BookItem = ({ name, author, description, price, id }) => {
 			id: id,
 			count: count,
 			price: price,
+			cover: cover,
 		});
 	};
 
@@ -19,6 +20,12 @@ export const BookItem = ({ name, author, description, price, id }) => {
 
 	return (
 		<li className={styles.book}>
+			<div className={styles['cover-container']}>
+				<div className={styles.cover}>
+					<img src={cover} alt='book_cover' />
+				</div>
+			</div>
+
 			<div>
 				<h3>{name}</h3>
 				<div className={styles.author}>{author}</div>
