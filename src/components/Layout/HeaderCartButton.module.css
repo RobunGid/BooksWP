@@ -4,7 +4,7 @@
 	border: none;
 	background-color: #47035d;
 	color: white;
-	padding: 0.1rem 3rem;
+	padding: 0.1rem 0.7rem;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -20,7 +20,7 @@
 .icon {
 	width: 1.5rem;
 	height: 1.5rem;
-	margin-right: 1rem;
+	margin-right: 0rem;
 }
 
 .badge {
@@ -31,6 +31,10 @@
 	font-weight: bold;
 }
 
+.cart-text {
+	display: none;
+}
+
 .button:hover .badge,
 .button:active .badge {
 	background-color: #6d0d8d;
@@ -38,6 +42,20 @@
 
 .bump {
 	animation: bump 300ms ease-out;
+}
+
+@media (min-width: 768px) {
+	.button {
+		padding: 0.1rem 3rem;
+	}
+
+	.icon {
+		margin-right: 1rem;
+	}
+
+	.cart-text {
+		display: inherit;
+	}
 }
 
 @keyframes bump {

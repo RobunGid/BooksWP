@@ -20,8 +20,8 @@
 }
 
 .cover-container {
-	width: 125px;
-	height: 175px;
+	width: 80px;
+	height: 120px;
 	perspective: 800px;
 	position: relative;
 	margin: 10px;
@@ -76,6 +76,11 @@
 @media (min-width: 768px) {
 	.actions {
 		flex-direction: row;
+	}
+
+	.cover-container {
+		width: 125px;
+		height: 175px;
 	}
 }
 

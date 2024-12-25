@@ -31,7 +31,7 @@ export const HeaderCartButton = ({ onClick }) => {
 			<span className={styles.icon}>
 				<CartIcon />
 			</span>
-			<span>Cart</span>
+			<span className={styles['cart-text']}>Cart</span>
 			<span className={styles.badge}>{cartItemsCount}</span>
 		</button>
 	);
