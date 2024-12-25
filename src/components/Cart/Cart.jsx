@@ -29,7 +29,7 @@ export const Cart = ({ onHideCart }) => {
 				<button onClick={onHideCart} className={styles['button--alt']}>
 					Close
 				</button>
-				<button className={styles['buton']}>Order</button>
+				<button className={styles['button']}>Order</button>
 			</div>
 		</Modal>
 	);
