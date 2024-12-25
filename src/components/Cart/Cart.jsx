@@ -10,7 +10,7 @@ export const Cart = ({ onHideCart }) => {
 					name: 'The Old Man and the Sea',
 					author: 'Ernest Hemingway',
 					price: 6.74,
-					amount: 2,
+					count: 2,
 				},
 			].map((item) => (
 				<li key={item.id}>{item.name}</li>

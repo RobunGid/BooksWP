@@ -7,7 +7,7 @@ export const CartContextProvider = ({ children }) => {
 
 	const cartContext = {
 		items: [],
-		totalAmount: 0,
+		totalCount: 0,
 		addItem: handleAddItem,
 		removeItem: handleRemoveItem,
 	};
