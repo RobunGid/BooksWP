@@ -7,16 +7,16 @@ import { CartItem } from './CartItem';
 export const Cart = ({ onHideCart }) => {
 	const cartContext = useContext(CartContext);
 
-	const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`;
+	const totalAmount = `$${Math.abs(cartContext.totalAmount).toFixed(2)}`;
 
 	const hasItems = cartContext.items.length > 0;
 
 	const handleAddCartItem = (item) => {
-		item;
+		cartContext.addItem({ ...item, count: 1 });
 	};
 
 	const handleRemoveCartItem = (id) => {
-		id;
+		cartContext.removeItem(id);
 	};
 
 	const cartItems = (
