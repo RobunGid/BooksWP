@@ -1,8 +1,9 @@
+import { Modal } from '../UI/Modal';
 import styles from './Cart.module.css';
 
 export const Cart = () => {
 	const cartItems = (
-		<ul className={styles['card-items']}>
+		<ul className={styles['cart-items']}>
 			{[
 				{
 					id: 'book_0001',
@@ -18,16 +19,16 @@ export const Cart = () => {
 	);
 
 	return (
-		<div>
+		<Modal>
 			{cartItems}
 			<div className={styles.total}>
 				<span>Total</span>
 				<span>$94.34</span>
 			</div>
 			<div className={styles.actions}>
-				<button className={styles['buton--alt']}>Close</button>
+				<button className={styles['button--alt']}>Close</button>
 				<button className={styles['buton']}>Order</button>
 			</div>
-		</div>
+		</Modal>
 	);
 };
