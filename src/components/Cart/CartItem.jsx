@@ -1,11 +1,16 @@
 import styles from './CartItem.module.css';
 
-export const CartItem = ({ name, author, price, count, onRemove, onAdd }) => {
+export const CartItem = ({ name, author, price, count, cover, onRemove, onAdd }) => {
 	const formattedPrice = `$${price.toFixed(2)}`;
 
 	return (
 		<li className={styles['cart-item']}>
-			<div>
+			<div className={styles['cover-container']}>
+				<div className={styles.cover}>
+					<img src={cover} alt='book_cover' />
+				</div>
+			</div>
+			<div className={styles.info}>
 				<h2>{name}</h2>
 				<h3>{author}</h3>
 				<div className={styles.summary}>

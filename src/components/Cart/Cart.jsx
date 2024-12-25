@@ -28,6 +28,7 @@ export const Cart = ({ onHideCart }) => {
 					author={item.author}
 					price={item.price}
 					count={item.count}
+					cover={item.cover}
 					onAdd={handleAddCartItem.bind(null, item)}
 					onRemove={handleRemoveCartItem.bind(null, item.id)}
 				></CartItem>
