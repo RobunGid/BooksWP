@@ -1,6 +1,7 @@
 import styles from './BookItem.module.css';
+import { BookItemForm } from './BookItemForm';
 
-export const BookItem = ({ name, author, description, price }) => {
+export const BookItem = ({ name, author, description, price, id }) => {
 	const formattedPrice = `$${price.toFixed(2)}`;
 
 	return (
@@ -12,7 +13,9 @@ export const BookItem = ({ name, author, description, price }) => {
 				<div className={styles.price}>{formattedPrice}</div>
 			</div>
 
-			<div></div>
+			<div>
+				<BookItemForm id={id} />
+			</div>
 		</li>
 	);
 };

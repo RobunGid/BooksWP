@@ -8,6 +8,7 @@ export const BookList = () => {
 	const bookList = BOOK_LIST.map((bookData) => (
 		<BookItem
 			key={bookData.id}
+			id={bookData.id}
 			price={bookData.price}
 			name={bookData.name}
 			author={bookData.author}
