@@ -1,11 +1,15 @@
 import booksStoreImage from '../../assets/books_store_large.jpg';
+import { BooksWPLogo } from '../../assets/BooksWPLogo';
 import styles from './Header.module.css';
 import { HeaderCartButton } from './HeaderCartButton';
 export const Header = ({ onShowCart }) => {
 	return (
 		<>
 			<header className={styles.header}>
-				<h1>BooksWP</h1>
+				<div className={styles.icon}>
+					<BooksWPLogo />
+					<h1>BooksWP</h1>
+				</div>
 				<HeaderCartButton onClick={onShowCart} />
 			</header>
 			<div className={styles['main-image']}>
