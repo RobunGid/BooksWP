@@ -6,17 +6,24 @@ import styles from './BookList.module.css';
 export const BookList = () => {
 	const [books, setBooks] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
+	const [HTTPErrorMessage, setHTTPErrorMessage] = useState();
 
 	useEffect(() => {
 		const fetchBooks = async () => {
 			setIsLoading(true);
-
 			const response = await fetch(
 				// Firebase db link
 				'FIREBASE_URL/books.json'
 			);
-			const responseData = await response.json();
 
+			if (
+				!response.ok ||
+				response.headers.get('Content-Type') !== 'application/json; charset=utf-8'
+			) {
+				throw new Error('Something goes wrong... Try reload page');
+			}
+
+			const responseData = await response.json();
 			const loadedBooks = [];
 
 			for (const key in responseData) {
@@ -35,13 +42,24 @@ export const BookList = () => {
 			setIsLoading(false);
 		};
 
-		fetchBooks();
+		fetchBooks().catch((error) => {
+			setIsLoading(false);
+			setHTTPErrorMessage(error.message);
+		});
 	}, []);
 
 	if (isLoading) {
 		return (
 			<section className={styles.loading}>
 				<p>Fetching data from server...</p>
+			</section>
+		);
+	}
+
+	if (HTTPErrorMessage) {
+		return (
+			<section className={styles.error}>
+				<p>{HTTPErrorMessage}</p>
 			</section>
 		);
 	}
