@@ -5,9 +5,12 @@ import styles from './BookList.module.css';
 
 export const BookList = () => {
 	const [books, setBooks] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => {
 		const fetchBooks = async () => {
+			setIsLoading(true);
+
 			const response = await fetch(
 				// Firebase db link
 				'FIREBASE_URL/books.json'
@@ -28,10 +31,20 @@ export const BookList = () => {
 			}
 
 			setBooks(loadedBooks);
+
+			setIsLoading(false);
 		};
 
 		fetchBooks();
 	}, []);
+
+	if (isLoading) {
+		return (
+			<section className={styles.loading}>
+				<p>Fetching data from server...</p>
+			</section>
+		);
+	}
 
 	const bookList = books.map((bookData) => (
 		<BookItem
