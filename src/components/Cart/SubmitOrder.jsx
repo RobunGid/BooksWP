@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 
 const isInputValid = (inputValue) => inputValue.trim() !== '';
 
-export const SubmitOrder = ({ onCancel }) => {
+export const SubmitOrder = ({ onCancel, onSubmit }) => {
 	const [formValidity, setFormValidity] = useState({
 		name: true,
 		city: true,
@@ -37,6 +37,12 @@ export const SubmitOrder = ({ onCancel }) => {
 		if (!isFormValid) {
 			return;
 		}
+
+		onSubmit({
+			name: enteredName,
+			city: enteredCity,
+			address: enteredAddress,
+		});
 	};
 
 	const nameInputClasses = `${styles.control} ${

@@ -5,4 +5,5 @@ export const CartContext = createContext({
 	totalAmount: 0,
 	addItem: (item) => item,
 	removeItem: (id) => id,
+	clearCart: () => {},
 });

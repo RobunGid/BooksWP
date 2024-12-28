@@ -7,6 +7,8 @@ import { SubmitOrder } from './SubmitOrder';
 
 export const Cart = ({ onHideCart }) => {
 	const [isSubmitOrderAvailable, setIsSubmitOrderAvailable] = useState(false);
+	const [isDataSubmitting, setIsDataSubmitting] = useState(false);
+	const [wasDataSended, setWasDataSended] = useState(false);
 
 	const cartContext = useContext(CartContext);
 
@@ -24,6 +26,23 @@ export const Cart = ({ onHideCart }) => {
 
 	const handleOrder = () => {
 		setIsSubmitOrderAvailable(true);
+	};
+
+	const handleSubmitOrder = async (userData) => {
+		setIsDataSubmitting(true);
+		// Firebase db link
+		await fetch('FIREBASE_URL/orders.json', {
+			method: 'POST',
+			body: JSON.stringify({
+				user: userData,
+				orderedBooks: cartContext.items,
+			}),
+		});
+
+		setIsDataSubmitting(false);
+		setWasDataSended(true);
+
+		cartContext.clearCart();
 	};
 
 	const cartItems = (
@@ -56,15 +75,38 @@ export const Cart = ({ onHideCart }) => {
 		</div>
 	);
 
-	return (
-		<Modal onClose={onHideCart}>
+	const cartModalContent = (
+		<>
 			{cartItems}
 			<div className={styles.total}>
 				<span>Total</span>
 				<span>{totalAmount}</span>
 			</div>
-			{isSubmitOrderAvailable && <SubmitOrder onCancel={onHideCart} />}
+			{isSubmitOrderAvailable && (
+				<SubmitOrder onCancel={onHideCart} onSubmit={handleSubmitOrder} />
+			)}
 			{!isSubmitOrderAvailable && modalButtons}
+		</>
+	);
+
+	const dataSubmittingCartModalContent = <p>Sending data to server...</p>;
+
+	const dataWasSubmittedCartModalContent = (
+		<>
+			<p>Your order has been successfully sent!</p>
+			<div className={styles.actions}>
+				<button onClick={onHideCart} className={styles['button--alt']}>
+					Close
+				</button>
+			</div>
+		</>
+	);
+
+	return (
+		<Modal onClose={onHideCart}>
+			{!isDataSubmitting && !wasDataSended && cartModalContent}
+			{isDataSubmitting && dataSubmittingCartModalContent}
+			{wasDataSended && dataWasSubmittedCartModalContent}
 		</Modal>
 	);
 };
