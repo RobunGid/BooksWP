@@ -10,6 +10,14 @@ BooksWP – an online bookstore offering a wide range of genres, where you can e
 -   Order sending to FireBase DB
 -   Fetch book list from FireBase DB
 
+## Tech Stack
+
+**Client:** React, CSS Modules, Vite, ESlint, Prettier
+
+**Server:** FireBase Realtime DB
+
+
+
 ## Screenshots
 
 ![Screenshot 1](https://i.ibb.co/kmnNFjJ/image.png)  
