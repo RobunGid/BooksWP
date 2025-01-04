@@ -31,7 +31,7 @@ export const Cart = ({ onHideCart }) => {
 	const handleSubmitOrder = async (userData) => {
 		setIsDataSubmitting(true);
 		// Firebase db link
-		await fetch('FIREBASE_URL/orders.json', {
+		await fetch(`${import.meta.env.VITE_FIREBASE_DATABASE_URL}/orders.json`, {
 			method: 'POST',
 			body: JSON.stringify({
 				user: userData,

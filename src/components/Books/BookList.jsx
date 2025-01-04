@@ -13,7 +13,7 @@ export const BookList = () => {
 			setIsLoading(true);
 			const response = await fetch(
 				// Firebase db link
-				'FIREBASE_URL/books.json'
+				`${import.meta.env.VITE_FIREBASE_DATABASE_URL}/books.json`
 			);
 
 			if (!response.ok) {
