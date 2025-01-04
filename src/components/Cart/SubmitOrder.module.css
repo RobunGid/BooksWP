@@ -60,6 +60,15 @@
 }
 
 .invalid input {
-	border-color: red;
+	border: none;
+	outline: 1px solid red;
 	background-color: #dccccc;
+}
+
+.invalid input:focus {
+	outline: 2px solid darkred;
+}
+
+.invalid p {
+	color: red;
 }
