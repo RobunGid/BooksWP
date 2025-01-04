@@ -16,11 +16,16 @@ export const BookList = () => {
 				'FIREBASE_URL/books.json'
 			);
 
+			if (!response.ok) {
+				throw new Error('Something goes wrong... Try reload page');
+			}
+
 			if (
-				!response.ok ||
 				response.headers.get('Content-Type') !== 'application/json; charset=utf-8'
 			) {
-				throw new Error('Something goes wrong... Try reload page');
+				throw new Error(
+					'Something goes wrong... Try reload page. (Check FireBase url in components/Books/Booklist.jsx and components/Cart/Cart.jsx'
+				);
 			}
 
 			const responseData = await response.json();
