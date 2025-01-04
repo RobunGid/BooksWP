@@ -1,5 +1,5 @@
-import booksStoreImage from '../../assets/books_store_large.jpg';
-import { BooksWPLogo } from '../../assets/BooksWPLogo';
+import booksStoreImage from '/public/books_store_large.jpg';
+import { BooksWPLogo } from '/public/BooksWPLogo';
 import styles from './Header.module.css';
 import { HeaderCartButton } from './HeaderCartButton';
 export const Header = ({ onShowCart }) => {
