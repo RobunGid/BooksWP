@@ -1,8 +1,25 @@
-# React + Vite
+# BooksWP - Where every book brings pleasure
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+BooksWP – an online bookstore offering a wide range of genres, where you can easily add books to your cart and order paper books or eBooks with fast delivery.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   Interactive cart
+-   Simple backend using FireBase
+-   Form validation
+-   Order sending to FireBase DB
+-   Fetch book list from FireBase DB
+
+## Screenshots
+
+![Screenshot 1](https://i.ibb.co/kmnNFjJ/image.png)  
+![Screenshot 2](https://i.ibb.co/2PvB42d/image.png)  
+![Screenshot 3](https://i.ibb.co/qyq8tjX/image.png)  
+![Screenshot 4](https://i.ibb.co/9pvZpSk/image.png)  
+![Mobile Screenshot 1](https://i.ibb.co/D8Tx81R/i3.jpg)  
+![Mobile Screenshot 2](https://i.ibb.co/4YKbMMX/i2.jpg)  
+![Mobile Screenshot 3](https://i.ibb.co/mXYN3p7/i1.jpg)  
+
+## License
+
+[GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/)
